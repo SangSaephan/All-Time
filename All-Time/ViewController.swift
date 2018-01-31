@@ -15,11 +15,18 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func sportButtonPressed(_ sender: UIButton) {
+        if sender.tag == 0 {
+            performSegue(withIdentifier: "goToStats", sender: "http://localhost:8181/nba/points")
+        } else if sender.tag == 1 {
+            performSegue(withIdentifier: "goToStats", sender: "http://localhost:8181/nfl/passtds")
+        }
     }
-
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! StatsViewController
+        destination.categoryUrl = sender as? String
+    }
+    
 }
 
