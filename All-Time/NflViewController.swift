@@ -10,14 +10,141 @@ import UIKit
 
 class NflViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var categoryLabel: UILabel!
+    
+    var players = [Dictionary<String, Any>]()
+    var categoryUrl: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        networkCall(category: categoryUrl)
+        categoryLabel.text = "Pass Completions"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationItem.title = "NFL"
     }
+    
+    // MARK: - Network Call
+    func networkCall(category: String?) {
+        
+        if let urlString = category {
+            let url = URL(string: urlString)!
+            let task = URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+                if error != nil {
+                    print("Error!")
+                } else {
+                    if let data = data {
+                        do {
+                            let jsonSerialized = try JSONSerialization.jsonObject(with: data, options: []) as? [Dictionary<String, Any>]
+                            
+                            if let json = jsonSerialized {
+                                self.players = json
+                            }
+                        } catch {
+                            print("Error")
+                        }
+                    }
+                }
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            })
+            task.resume()
+        }
+        
+    }
+    
+    // MARK: - Prepare for Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "categorySelection" {
+            let navigationController = segue.destination as! UINavigationController
+            let destination = navigationController.topViewController as! NflCategoriesViewController
+            destination.delegate = self
+        }
+    }
 
+}
+
+// MARK: - Tableview Delegate and Datasource Methods
+extension NflViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return players.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "nflCell", for: indexPath) as! NflCell
+        
+        if players[indexPath.row]["active"] as! Bool == true {
+            cell.nameLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
+        } else {
+            cell.nameLabel.font = UIFont.systemFont(ofSize: 17.0)
+        }
+        
+        cell.nameLabel.text = "\(indexPath.row + 1). \(players[indexPath.row]["name"] as! String)"
+        
+        if let stat = players[indexPath.row]["stat"] as? Int {
+            cell.statLabel.text = "\(stat)"
+        } else {
+            cell.statLabel.text = "\(players[indexPath.row]["stat"] as! Double)"
+        }
+        
+        
+        return cell
+    }
+    
+}
+
+// MARK: - NflCategorySelection Protocol
+extension NflViewController: NflCategorySelection {
+    
+    func userSelectedCategory(category: String) {
+        
+        switch category {
+        case "Pass Completions":
+            categoryLabel.text = category
+            networkCall(category: "http://localhost:8181/nfl/passcomp")
+        case "Pass Yards":
+            categoryLabel.text = category
+            networkCall(category: "http://localhost:8181/nfl/passyards")
+        case "Pass TDs":
+            categoryLabel.text = category
+            networkCall(category: "http://localhost:8181/nfl/passtds")
+        case "Pass INTs":
+            categoryLabel.text = category
+            networkCall(category: "http://localhost:8181/nfl/passints")
+        case "Rush Yards":
+            categoryLabel.text = category
+            networkCall(category: "http://localhost:8181/nfl/rushyards")
+        case "Rush TDs":
+            categoryLabel.text = category
+            networkCall(category: "http://localhost:8181/nfl/rushtds")
+        case "Receptions":
+            categoryLabel.text = category
+            networkCall(category: "http://localhost:8181/nfl/receptions")
+        case "Receiving Yards":
+            categoryLabel.text = category
+            networkCall(category: "http://localhost:8181/nfl/recyards")
+        case "Receiving TDs":
+            categoryLabel.text = category
+            networkCall(category: "http://localhost:8181/nfl/rectds")
+        case "Sacks":
+            categoryLabel.text = category
+            networkCall(category: "http://localhost:8181/nfl/defsacks")
+        case "Interceptions":
+            categoryLabel.text = category
+            networkCall(category: "http://localhost:8181/nfl/defints")
+        default:
+            return
+        }
+        
+    }
+    
 }

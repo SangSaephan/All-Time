@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         if sender.tag == 0 {
             performSegue(withIdentifier: "goToNba", sender: "http://localhost:8181/nba/points")
         } else if sender.tag == 1 {
-            performSegue(withIdentifier: "goToNfl", sender: "http://localhost:8181/nfl/passtds")
+            performSegue(withIdentifier: "goToNfl", sender: "http://localhost:8181/nfl/passcomp")
         }
     }
     
@@ -27,6 +27,9 @@ class ViewController: UIViewController {
         
         if segue.identifier == "goToNba" {
             let destination = segue.destination as! NbaViewController
+            destination.categoryUrl = sender as? String
+        } else if segue.identifier == "goToNfl" {
+            let destination = segue.destination as! NflViewController
             destination.categoryUrl = sender as? String
         }
         

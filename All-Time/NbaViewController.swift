@@ -23,6 +23,7 @@ class NbaViewController: UIViewController {
         tableView.dataSource = self
         
         networkCall(category: categoryUrl)
+        categoryLabel.text = "Points"
     }
     
     override func viewWillAppear(_ animated: Bool) {
