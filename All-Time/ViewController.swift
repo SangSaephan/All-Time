@@ -7,12 +7,35 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var nbaButton: UIButton!
+    @IBOutlet weak var nflButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: view.frame, andColors: [UIColor.flatNavyBlueDark, UIColor.flatBlue])
+        
+        updateButtonsUi()
+    }
+    
+    func updateButtonsUi() {
+        
+        nbaButton.layer.borderWidth = 1.0
+        nflButton.layer.borderWidth = 1.0
+        
+        nbaButton.layer.cornerRadius = 15.0
+        nflButton.layer.cornerRadius = 15.0
+        
+        nbaButton.layer.borderColor = (ContrastColorOf(UIColor.flatNavyBlue, returnFlat: true)).cgColor
+        nflButton.layer.borderColor = (ContrastColorOf(UIColor.flatNavyBlue, returnFlat: true)).cgColor
+        
+        nbaButton.tintColor = ContrastColorOf(UIColor.flatNavyBlue, returnFlat: true)
+        nflButton.tintColor = ContrastColorOf(UIColor.flatNavyBlue, returnFlat: true)
+        
     }
 
     @IBAction func sportButtonPressed(_ sender: UIButton) {

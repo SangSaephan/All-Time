@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--All-Time-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="All_Time" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,35 +18,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3A-l4-TH1">
-                                <rect key="frame" x="164" y="256" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="NBA"/>
-                                <connections>
-                                    <action selector="sportButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uVU-JU-sjB"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6B-QG-Nsh">
-                                <rect key="frame" x="164" y="294" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="NFL"/>
-                                <connections>
-                                    <action selector="sportButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9yr-9R-aq6"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ud2-uv-282">
+                                <rect key="frame" x="112.5" y="264" width="150" height="139"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="FBK-JI-HpB">
+                                        <rect key="frame" x="0.0" y="37" width="150" height="64"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3A-l4-TH1">
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
+                                                <state key="normal" title="NBA"/>
+                                                <connections>
+                                                    <action selector="sportButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uVU-JU-sjB"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6B-QG-Nsh">
+                                                <rect key="frame" x="0.0" y="34" width="150" height="30"/>
+                                                <state key="normal" title="NFL"/>
+                                                <connections>
+                                                    <action selector="sportButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9yr-9R-aq6"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="FBK-JI-HpB" firstAttribute="centerX" secondItem="Ud2-uv-282" secondAttribute="centerX" id="8sc-nI-XhV"/>
+                                    <constraint firstAttribute="height" constant="139" id="Eoc-5s-kGd"/>
+                                    <constraint firstAttribute="width" constant="150" id="k1G-cN-0JN"/>
+                                    <constraint firstItem="FBK-JI-HpB" firstAttribute="centerY" secondItem="Ud2-uv-282" secondAttribute="centerY" id="qBL-p7-hzH"/>
+                                    <constraint firstItem="FBK-JI-HpB" firstAttribute="leading" secondItem="Ud2-uv-282" secondAttribute="leading" id="sgf-Ej-F93"/>
+                                    <constraint firstAttribute="trailing" secondItem="FBK-JI-HpB" secondAttribute="trailing" id="vk0-Sh-3NP"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ud2-uv-282" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="1Rm-Aw-J2J"/>
+                            <constraint firstItem="Ud2-uv-282" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zFg-Ix-zt3"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="wlg-tp-CSX"/>
+                    <navigationItem key="navigationItem" title="All-Time" id="wlg-tp-CSX"/>
                     <connections>
+                        <outlet property="nbaButton" destination="m3A-l4-TH1" id="7su-eg-Rfc"/>
+                        <outlet property="nflButton" destination="U6B-QG-Nsh" id="fAw-Ue-CM0"/>
                         <segue destination="zsr-b7-t4g" kind="show" identifier="goToNba" id="EEE-J6-rOR"/>
                         <segue destination="JRX-BK-O0t" kind="show" identifier="goToNfl" id="fLn-8V-R5J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="649" y="33"/>
+            <point key="canvasLocation" x="648.79999999999995" y="32.833583208395808"/>
         </scene>
         <!--Nfl View Controller-->
         <scene sceneID="iWz-8M-Ooz">
