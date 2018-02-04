@@ -7,23 +7,32 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 class NbaViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var categoryView: UIView!
     
     var players = [Dictionary<String, Any>]()
     var categoryUrl: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: view.frame, andColors: [UIColor.flatNavyBlueDark, UIColor.flatBlue])
 
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundColor = UIColor.clear
+        
+        categoryView.layer.cornerRadius = 10.0
+        
+        categoryLabel.text = "Points"
+        categoryLabel.textColor = ContrastColorOf(UIColor.flatBlack, returnFlat: true)
         
         networkCall(category: categoryUrl)
-        categoryLabel.text = "Points"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -83,19 +92,16 @@ extension NbaViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "nbaCell", for: indexPath) as! NbaCell
         
         if players[indexPath.row]["active"] as! Bool == true {
-            cell.nameLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
+            cell.nameLabel.text = "\(indexPath.row + 1). \((players[indexPath.row]["name"] as! String).uppercased())"
         } else {
-            cell.nameLabel.font = UIFont.systemFont(ofSize: 17.0)
+            cell.nameLabel.text = "\(indexPath.row + 1). \(players[indexPath.row]["name"] as! String)"
         }
-        
-        cell.nameLabel.text = "\(indexPath.row + 1). \(players[indexPath.row]["name"] as! String)"
         
         if let stat = players[indexPath.row]["stat"] as? Int {
             cell.statLabel.text = "\(stat)"
         } else {
             cell.statLabel.text = "\(players[indexPath.row]["stat"] as! Double)"
         }
-        
         
         return cell
     }

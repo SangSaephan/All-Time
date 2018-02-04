@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 class NbaCell: UITableViewCell {
 
@@ -15,7 +16,11 @@ class NbaCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        backgroundColor = UIColor.clear
+        
+        nameLabel.textColor = ContrastColorOf(UIColor.flatNavyBlue, returnFlat: true)
+        statLabel.textColor = ContrastColorOf(UIColor.flatNavyBlue, returnFlat: true)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
