@@ -37,6 +37,7 @@ class NbaViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationItem.title = "NBA"
+        tableView.setContentOffset(.zero, animated: true)
     }
     
     // MARK: - Network Call
