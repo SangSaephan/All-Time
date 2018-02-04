@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 protocol NflCategorySelection {
     func userSelectedCategory(category: String)
@@ -21,9 +22,12 @@ class NflCategoriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = UIColor(gradientStyle: .topToBottom, withFrame: view.frame, andColors: [UIColor.flatNavyBlueDark, UIColor.flatBlue])
 
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundColor = UIColor.clear
     }
     
     @IBAction func cancelButtonPressed(_ sender: Any) {
@@ -41,7 +45,9 @@ extension NflCategoriesViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "nflCategoryCell", for: indexPath)
+        cell.backgroundColor = UIColor.clear
         cell.textLabel?.text = categories[indexPath.row]
+        cell.textLabel?.textColor = ContrastColorOf(UIColor.flatNavyBlue, returnFlat: true)
         
         return cell
     }
