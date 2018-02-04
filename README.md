@@ -8,4 +8,5 @@ Most sports apps today give you scores, player profiles, stats for the current s
 
 ## Preview
 ![](All-Time.gif)
+
 *More leagues will be added* 
