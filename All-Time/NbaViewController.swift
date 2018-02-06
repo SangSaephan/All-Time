@@ -115,31 +115,31 @@ extension NbaViewController: NbaCategorySelection {
     func userSelectedCategory(category: String) {
         if category == "Points" {
             categoryLabel.text = category
-            networkCall(category: "http://localhost:8181/nba/points")
+            networkCall(category: "\(BASE_URL)/nba/points")
         } else if category == "Assists" {
             categoryLabel.text = category
-            networkCall(category: "http://localhost:8181/nba/assists")
+            networkCall(category: "\(BASE_URL)/nba/assists")
         } else if category == "Rebounds" {
             categoryLabel.text = category
-            networkCall(category: "http://localhost:8181/nba/rebounds")
+            networkCall(category: "\(BASE_URL)/nba/rebounds")
         } else if category == "Blocks" {
             categoryLabel.text = category
-            networkCall(category: "http://localhost:8181/nba/blocks")
+            networkCall(category: "\(BASE_URL)/nba/blocks")
         } else if category == "Steals" {
             categoryLabel.text = category
-            networkCall(category: "http://localhost:8181/nba/steals")
+            networkCall(category: "\(BASE_URL)/nba/steals")
         } else if category == "Turnovers" {
             categoryLabel.text = category
-            networkCall(category: "http://localhost:8181/nba/turnovers")
+            networkCall(category: "\(BASE_URL)/nba/turnovers")
         } else if category == "FG%" {
             categoryLabel.text = category
-            networkCall(category: "http://localhost:8181/nba/fgpct")
+            networkCall(category: "\(BASE_URL)/nba/fgpct")
         } else if category == "FT%" {
             categoryLabel.text = category
-            networkCall(category: "http://localhost:8181/nba/ftpct")
+            networkCall(category: "\(BASE_URL)/nba/ftpct")
         } else if category == "3PT%" {
             categoryLabel.text = category
-            networkCall(category: "http://localhost:8181/nba/3ptpct")
+            networkCall(category: "\(BASE_URL)/nba/3ptpct")
         }
     }
     

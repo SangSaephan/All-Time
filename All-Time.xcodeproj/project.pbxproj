@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E1F3B48202A39FC0078E034 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1F3B47202A39FC0078E034 /* API.swift */; };
 		4ED29FB520243E31006BF27B /* NbaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED29FB420243E31006BF27B /* NbaViewController.swift */; };
 		4ED29FB720243E3C006BF27B /* NflViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED29FB620243E3C006BF27B /* NflViewController.swift */; };
 		4ED29FB920244105006BF27B /* NbaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED29FB820244105006BF27B /* NbaCell.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		020413B4F17CFC7118FFB4B4 /* Pods-All-Time.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-Time.debug.xcconfig"; path = "Pods/Target Support Files/Pods-All-Time/Pods-All-Time.debug.xcconfig"; sourceTree = "<group>"; };
 		30312366FF8A76930486A83B /* Pods_All_Time.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_All_Time.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E1F3B47202A39FC0078E034 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		4ED29FB420243E31006BF27B /* NbaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NbaViewController.swift; sourceTree = "<group>"; };
 		4ED29FB620243E3C006BF27B /* NflViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NflViewController.swift; sourceTree = "<group>"; };
 		4ED29FB820244105006BF27B /* NbaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NbaCell.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				4ED29FBD202632A4006BF27B /* NFL */,
 				4ED29FBC20244FB9006BF27B /* NBA */,
 				4ED56DF12021B7D000A45CAB /* ViewController.swift */,
+				4E1F3B47202A39FC0078E034 /* API.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				4ED29FB520243E31006BF27B /* NbaViewController.swift in Sources */,
 				4ED56DF02021B7D000A45CAB /* AppDelegate.swift in Sources */,
 				4ED29FB720243E3C006BF27B /* NflViewController.swift in Sources */,
+				4E1F3B48202A39FC0078E034 /* API.swift in Sources */,
 				4ED29FB920244105006BF27B /* NbaCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

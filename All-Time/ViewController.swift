@@ -40,9 +40,9 @@ class ViewController: UIViewController {
 
     @IBAction func sportButtonPressed(_ sender: UIButton) {
         if sender.tag == 0 {
-            performSegue(withIdentifier: "goToNba", sender: "http://localhost:8181/nba/points")
+            performSegue(withIdentifier: "goToNba", sender: "\(BASE_URL)/nba/points")
         } else if sender.tag == 1 {
-            performSegue(withIdentifier: "goToNfl", sender: "http://localhost:8181/nfl/passcomp")
+            performSegue(withIdentifier: "goToNfl", sender: "\(BASE_URL)/nfl/passcomp")
         }
     }
     

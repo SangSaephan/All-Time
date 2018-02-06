@@ -117,37 +117,37 @@ extension NflViewController: NflCategorySelection {
         switch category {
         case "Pass Completions":
             categoryLabel.text = category
-            networkCall(category: "http://localhost:8181/nfl/passcomp")
+            networkCall(category: "\(BASE_URL)/nfl/passcomp")
         case "Pass Yards":
             categoryLabel.text = category
-            networkCall(category: "http://localhost:8181/nfl/passyards")
+            networkCall(category: "\(BASE_URL)/nfl/passyards")
         case "Pass TDs":
             categoryLabel.text = category
-            networkCall(category: "http://localhost:8181/nfl/passtds")
+            networkCall(category: "\(BASE_URL)/nfl/passtds")
         case "Pass INTs":
             categoryLabel.text = category
-            networkCall(category: "http://localhost:8181/nfl/passints")
+            networkCall(category: "\(BASE_URL)/nfl/passints")
         case "Rush Yards":
             categoryLabel.text = category
-            networkCall(category: "http://localhost:8181/nfl/rushyards")
+            networkCall(category: "\(BASE_URL)/nfl/rushyards")
         case "Rush TDs":
             categoryLabel.text = category
-            networkCall(category: "http://localhost:8181/nfl/rushtds")
+            networkCall(category: "\(BASE_URL)/nfl/rushtds")
         case "Receptions":
             categoryLabel.text = category
-            networkCall(category: "http://localhost:8181/nfl/receptions")
+            networkCall(category: "\(BASE_URL)/nfl/receptions")
         case "Receiving Yards":
             categoryLabel.text = category
-            networkCall(category: "http://localhost:8181/nfl/recyards")
+            networkCall(category: "\(BASE_URL)/nfl/recyards")
         case "Receiving TDs":
             categoryLabel.text = category
-            networkCall(category: "http://localhost:8181/nfl/rectds")
+            networkCall(category: "\(BASE_URL)/nfl/rectds")
         case "Sacks":
             categoryLabel.text = category
-            networkCall(category: "http://localhost:8181/nfl/defsacks")
+            networkCall(category: "\(BASE_URL)/nfl/defsacks")
         case "Interceptions":
             categoryLabel.text = category
-            networkCall(category: "http://localhost:8181/nfl/defints")
+            networkCall(category: "\(BASE_URL)/nfl/defints")
         default:
             return
         }
