@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var nbaButton: UIButton!
     @IBOutlet weak var nflButton: UIButton!
+    @IBOutlet weak var mlbButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,15 +27,19 @@ class ViewController: UIViewController {
         
         nbaButton.layer.borderWidth = 1.0
         nflButton.layer.borderWidth = 1.0
+        mlbButton.layer.borderWidth = 1.0
         
         nbaButton.layer.cornerRadius = 15.0
         nflButton.layer.cornerRadius = 15.0
+        mlbButton.layer.cornerRadius = 15.0
         
         nbaButton.layer.borderColor = (ContrastColorOf(UIColor.flatNavyBlue, returnFlat: true)).cgColor
         nflButton.layer.borderColor = (ContrastColorOf(UIColor.flatNavyBlue, returnFlat: true)).cgColor
+        mlbButton.layer.borderColor = (ContrastColorOf(UIColor.flatNavyBlue, returnFlat: true)).cgColor
         
         nbaButton.tintColor = ContrastColorOf(UIColor.flatNavyBlue, returnFlat: true)
         nflButton.tintColor = ContrastColorOf(UIColor.flatNavyBlue, returnFlat: true)
+        mlbButton.tintColor = ContrastColorOf(UIColor.flatNavyBlue, returnFlat: true)
         
     }
 
@@ -43,6 +48,8 @@ class ViewController: UIViewController {
             performSegue(withIdentifier: "goToNba", sender: "\(BASE_URL)/nba/points")
         } else if sender.tag == 1 {
             performSegue(withIdentifier: "goToNfl", sender: "\(BASE_URL)/nfl/passcomp")
+        } else if sender.tag == 2 {
+            performSegue(withIdentifier: "goToMlb", sender: "\(BASE_URL)/mlb/avg")
         }
     }
     
@@ -53,6 +60,9 @@ class ViewController: UIViewController {
             destination.categoryUrl = sender as? String
         } else if segue.identifier == "goToNfl" {
             let destination = segue.destination as! NflViewController
+            destination.categoryUrl = sender as? String
+        } else if segue.identifier == "goToMlb" {
+            let destination = segue.destination as! MlbViewController
             destination.categoryUrl = sender as? String
         }
         
