@@ -11,6 +11,9 @@
 		4E1F3B52202AEE0B0078E034 /* MlbViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1F3B51202AEE0B0078E034 /* MlbViewController.swift */; };
 		4E1F3B54202AEFFB0078E034 /* MlbCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1F3B53202AEFFB0078E034 /* MlbCell.swift */; };
 		4E1F3B56202AF5960078E034 /* MlbCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1F3B55202AF5960078E034 /* MlbCategoriesViewController.swift */; };
+		4E1F3B5C202C3F060078E034 /* NhlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1F3B5B202C3F050078E034 /* NhlViewController.swift */; };
+		4E1F3B5E202C42010078E034 /* NhlCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1F3B5D202C42010078E034 /* NhlCell.swift */; };
+		4E1F3B60202C44280078E034 /* NhlCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1F3B5F202C44280078E034 /* NhlCategoriesViewController.swift */; };
 		4ED29FB520243E31006BF27B /* NbaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED29FB420243E31006BF27B /* NbaViewController.swift */; };
 		4ED29FB720243E3C006BF27B /* NflViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED29FB620243E3C006BF27B /* NflViewController.swift */; };
 		4ED29FB920244105006BF27B /* NbaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED29FB820244105006BF27B /* NbaCell.swift */; };
@@ -32,6 +35,9 @@
 		4E1F3B51202AEE0B0078E034 /* MlbViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MlbViewController.swift; sourceTree = "<group>"; };
 		4E1F3B53202AEFFB0078E034 /* MlbCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MlbCell.swift; sourceTree = "<group>"; };
 		4E1F3B55202AF5960078E034 /* MlbCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MlbCategoriesViewController.swift; sourceTree = "<group>"; };
+		4E1F3B5B202C3F050078E034 /* NhlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NhlViewController.swift; sourceTree = "<group>"; };
+		4E1F3B5D202C42010078E034 /* NhlCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NhlCell.swift; sourceTree = "<group>"; };
+		4E1F3B5F202C44280078E034 /* NhlCategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NhlCategoriesViewController.swift; sourceTree = "<group>"; };
 		4ED29FB420243E31006BF27B /* NbaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NbaViewController.swift; sourceTree = "<group>"; };
 		4ED29FB620243E3C006BF27B /* NflViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NflViewController.swift; sourceTree = "<group>"; };
 		4ED29FB820244105006BF27B /* NbaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NbaCell.swift; sourceTree = "<group>"; };
@@ -69,6 +75,15 @@
 			name = MLB;
 			sourceTree = "<group>";
 		};
+		4E1F3B5A202C3D9B0078E034 /* NHL */ = {
+			isa = PBXGroup;
+			children = (
+				4E1F3B5B202C3F050078E034 /* NhlViewController.swift */,
+				4E1F3B5F202C44280078E034 /* NhlCategoriesViewController.swift */,
+			);
+			name = NHL;
+			sourceTree = "<group>";
+		};
 		4ED29FB120243DE1006BF27B /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +98,7 @@
 				4ED29FB820244105006BF27B /* NbaCell.swift */,
 				4ED29FC0202638FC006BF27B /* NflCell.swift */,
 				4E1F3B53202AEFFB0078E034 /* MlbCell.swift */,
+				4E1F3B5D202C42010078E034 /* NhlCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -90,11 +106,11 @@
 		4ED29FB320243E00006BF27B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4E1F3B5A202C3D9B0078E034 /* NHL */,
 				4E1F3B4E202AEDB50078E034 /* MLB */,
 				4ED29FBD202632A4006BF27B /* NFL */,
 				4ED29FBC20244FB9006BF27B /* NBA */,
 				4ED56DF12021B7D000A45CAB /* ViewController.swift */,
-				4E1F3B47202A39FC0078E034 /* API.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -141,6 +157,7 @@
 				4ED29FB320243E00006BF27B /* Controller */,
 				4ED29FB220243DF2006BF27B /* View */,
 				4ED29FB120243DE1006BF27B /* Model */,
+				4E1F3B47202A39FC0078E034 /* API.swift */,
 				4ED56DEF2021B7D000A45CAB /* AppDelegate.swift */,
 				4ED56DF62021B7D000A45CAB /* Assets.xcassets */,
 				4ED56DF82021B7D000A45CAB /* LaunchScreen.storyboard */,
@@ -293,11 +310,14 @@
 				4ED56DF22021B7D000A45CAB /* ViewController.swift in Sources */,
 				4E1F3B52202AEE0B0078E034 /* MlbViewController.swift in Sources */,
 				4ED29FC1202638FC006BF27B /* NflCell.swift in Sources */,
+				4E1F3B60202C44280078E034 /* NhlCategoriesViewController.swift in Sources */,
 				4E1F3B56202AF5960078E034 /* MlbCategoriesViewController.swift in Sources */,
+				4E1F3B5C202C3F060078E034 /* NhlViewController.swift in Sources */,
 				4ED29FBF202633D3006BF27B /* NflCategoriesViewController.swift in Sources */,
 				4ED29FB520243E31006BF27B /* NbaViewController.swift in Sources */,
 				4ED56DF02021B7D000A45CAB /* AppDelegate.swift in Sources */,
 				4ED29FB720243E3C006BF27B /* NflViewController.swift in Sources */,
+				4E1F3B5E202C42010078E034 /* NhlCell.swift in Sources */,
 				4E1F3B48202A39FC0078E034 /* API.swift in Sources */,
 				4E1F3B54202AEFFB0078E034 /* MlbCell.swift in Sources */,
 				4ED29FB920244105006BF27B /* NbaCell.swift in Sources */,
